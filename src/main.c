@@ -1,8 +1,23 @@
-#include <stdio.h>
+#include "reader.h"
+#include <wchar.h>
 
-int main()
+int main(int argc,char *argv[])
 {
-  printf("Hello world!");
+  char *text;
+  int length = 0;
+
+  switch(argc){
+  case 2:
+    length = readFromFileToArray(&text, argv[1]);
+    if(length == 0) {
+      printf("Невозможно открыть файл!\n");
+      return -1;
+    }
+    break;
+  default:
+    printf("Пожалуйста укажите путь до текста!\n");
+    return -1;
+  }
 
   return 0;
 }
