@@ -18,8 +18,8 @@ bin/parser.o: src/parser.c src/parser.h
 bin/sort.o: src/sort.h src/sort.c
 	$(CC) $(flags) -c -o bin/sort.o src/sort.c
 
-build/test: bin/test.o bin/sort.o
-	gcc $(flags) -o build/test bin/test.o bin/sort.o
+build/test: bin/test.o bin/sort.o bin/parser.o bin/reader.o
+	gcc $(flags) -o build/test bin/test.o bin/sort.o bin/parser.o bin/reader.o
 
 bin/test.o: test/test.c
 	gcc $(flags) -o bin/test.o -c test/test.c -Ithirdparty -Isrc
