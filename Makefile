@@ -3,8 +3,8 @@ flags=-O0
 
 all: createfolders build/main
 
-build/main: bin/main.o bin/reader.o bin/parser.o
-	$(CC) $(flags) -o build/main bin/main.o bin/reader.o  bin/parser.o
+build/main: bin/main.o bin/reader.o bin/parser.o bin/sort.o
+	$(CC) $(flags) -o build/main bin/main.o bin/reader.o bin/parser.o bin/sort.o
 
 bin/main.o: src/main.c 
 	$(CC) $(flags) -c -o bin/main.o src/main.c
@@ -14,6 +14,9 @@ bin/reader.o: src/reader.c src/reader.h
 
 bin/parser.o: src/parser.c src/parser.h
 	$(CC) $(flags) -c -o bin/parser.o src/parser.c
+
+bin/sort.o: src/sort.h src/sort.c
+	$(CC) $(flags) -c -o bin/sort.o src/sort.c
 
 createfolders: bin/ build/
 
