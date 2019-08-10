@@ -32,7 +32,7 @@ char **parseWords(char *string) {
       wordsCount++;
   }
 
-  char **words = (char **)malloc(sizeof(char *) * wordsCount);
+  char **words = (char **)malloc(sizeof(char *) * (wordsCount + 2 ));
 
   int i = 0;
 
