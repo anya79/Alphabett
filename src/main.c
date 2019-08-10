@@ -1,5 +1,6 @@
 #include "reader.h"
 #include "parser.h"
+#include "sort.h"
 #include <wchar.h>
 
 int main(int argc,char *argv[])
@@ -10,15 +11,26 @@ int main(int argc,char *argv[])
   switch(argc){
   case 2:
 {
+
     length = readFromFileToArray(&text, argv[1]);
     if(length == 0) {
       printf("Невозможно открыть файл!\n");
       return -1;
     }
 
+
+
+
     char **words = parseWords(text);
 
-     break;
+sortWords(words);
+
+    while(*words != NULL) {
+      printf("%s\n", *words);
+      words++;
+    }
+
+    break;
 }
   default:
     printf("Пожалуйста укажите путь до текста!\n");
