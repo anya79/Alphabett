@@ -2,6 +2,7 @@
 
 char **parseWords(char *string) {
   for(int i = 0; string[i] != '\0'; i++) {
+// не получится заменить на isalpha иначе русский язык не работает
     switch (string[i])
     {
     case '\n':
@@ -9,6 +10,34 @@ char **parseWords(char *string) {
       break;
     case '\t':
       string[i] = ' ';
+break;
+    case '.':
+      string[i] = ' ';
+      break;
+    case ',':
+      string[i] = ' ';
+      break;
+    case '"':
+      string[i] = ' ';
+      break;
+    case '<':
+      string[i] = ' ';
+      break;
+    case '>':
+      string[i] = ' ';
+      break;
+    case '!':
+      string[i] = ' ';
+      break;
+    case '-':
+      string[i] = ' ';
+      break;
+    case '[':
+      string[i] = ' ';
+      break;
+    case ']':
+      string[i] = ' ';
+      break;
 
     default:
       break;
