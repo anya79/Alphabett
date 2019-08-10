@@ -1,7 +1,7 @@
 CC=gcc
 flags=-O0
 
-all: createfolders build/main
+all: createfolders build/main build/test runTests
 
 build/main: bin/main.o bin/reader.o bin/parser.o bin/sort.o
 	$(CC) $(flags) -o build/main bin/main.o bin/reader.o bin/parser.o bin/sort.o
@@ -18,7 +18,16 @@ bin/parser.o: src/parser.c src/parser.h
 bin/sort.o: src/sort.h src/sort.c
 	$(CC) $(flags) -c -o bin/sort.o src/sort.c
 
+build/test: bin/test.o bin/sort.o
+	gcc $(flags) -o build/test bin/test.o bin/sort.o
+
+bin/test.o: test/test.c
+	gcc $(flags) -o bin/test.o -c test/test.c -Ithirdparty -Isrc
+
 createfolders: bin/ build/
+
+runTests:
+	./build/test
 
 bin/: 
 	mkdir bin/
