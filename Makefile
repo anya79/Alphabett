@@ -1,5 +1,5 @@
 CC=gcc
-flags=-O0
+flags=-O0 -std=c11
 
 all: createfolders build/main build/test runTests
 
