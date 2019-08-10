@@ -24,8 +24,9 @@ int readFromFileToArray(char **array, char *fileName) {
 
     symNumber++;
 
-    if(symNumber >= arrSize) {
-      *array = (char *)realloc(*array, arrSize * sizeof(char));
+           if(symNumber >= arrSize - 1) {
+      *array = (char *)realloc(*array, arrSize * sizeof(char) * 2);
+      arrSize <<= 1;
     }
   }
 
