@@ -67,7 +67,7 @@ CTEST(reader, read_from_file)
 
   readFromFileToArray(&string, "test/test.txt");
 
-  ASSERT_EQUAL(strcmp(string, "hello world!"), 0);
+  ASSERT_EQUAL(strcmp(string, "hello world!\n"), 0);
 }
 int main(int argc, const char** argv)
 {
